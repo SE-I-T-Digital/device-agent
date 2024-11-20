@@ -1,4 +1,4 @@
-Example Directory
+# Example Directory
 The example directory contains everything needed to run the device agent and demonstrate its functionality.
 
 Application Deployment Definition
