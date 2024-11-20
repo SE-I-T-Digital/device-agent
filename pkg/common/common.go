@@ -8,7 +8,7 @@ import (
 const Basedir = "/home/intdigital/dev/margo"
 const DeploymentDir = Basedir + "/deployments"
 const DataDir = Basedir + "/data"
-const AppData = Basedir + "/app"
+const AppData = Basedir + "/app"               // [base location]/app/[component name]/[files]
 const SharedVolume = "/var/lib/docker/volumes" // /var/lib/docker/volumes/${COMPOSE_PROJECT_NAME}_app/_data
 
 // Initialize creates the directories if they do not exist

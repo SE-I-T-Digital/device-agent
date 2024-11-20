@@ -1,0 +1,41 @@
+apiVersion: application.margo.org/v1alpha1
+kind: ApplicationDeployment
+metadata:
+  annotations:
+    id: d3b49c6d-d5a5-4685-9a94-a5bd91bfcaa0
+    applicationId: com-schneider-electric-hello-world
+  name: com-schneider-electric-hello-world-deployment
+  namespace: margo
+spec:
+    deploymentProfile:
+        type: docker-compose
+        components:
+            - name: hello-world
+              properties:
+                packageLocation: https://raw.githubusercontent.com/SE-I-T-Digital/hello-world-color/c5ccfacb7af5f3a6a0964c032af2acf1c6ec74c2/docker-compose.yml
+                revision: 0.1.1
+    parameters:
+        backgroundColor:
+            value: lightblue
+            targets:
+                - pointer: BACKGROUND_COLOR
+                  components:
+                    - hello-world
+        displayImage:
+            value: hello.png
+            targets:
+                - pointer: DISPLAY_IMAGE
+                  components:
+                    - hello-world
+        srcImage:
+            value: hello.png
+            targets:
+                - pointer: ==FILE==
+                  components:
+                    - hello-world
+        hostPort:
+            value: 8080
+            targets:
+                - pointer: HOST_PORT
+                  components:
+                    - hello-world
